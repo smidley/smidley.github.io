@@ -1,0 +1,33 @@
+* {
+  font-family: 'Trebuchet MS';
+  text-align: center;
+}
+
+body {
+  background-color: cornsilk;
+}
+
+.portfolio {
+  margin: 15px;
+}
+
+.header {
+  color: lightcoral;
+  font-size: xx-large;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.main {
+  color: cornflowerblue;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+.footer {
+  color: cornflowerblue;
+  font-size: xx-small;
+  font-weight: lighter;
+  padding: 10px;
+}
