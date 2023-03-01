@@ -1,3 +1,3 @@
-# Tommy Garvin
+# Scott Brant
 
-Page hosted at: <https://tommygarvin.github.io>
+Page hosted at: <https://smidley.github.io>
