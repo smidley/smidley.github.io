@@ -1,33 +1,247 @@
-* {
-  font-family: 'Trebuchet MS';
-  text-align: center;
+:root {
+  --bg: #0b1120;
+  --bg-raised: #111a2e;
+  --border: #1f2b45;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --radius: 12px;
+  --max: 960px;
 }
+
+* { box-sizing: border-box; }
 
 body {
-  background-color: HoneyDew;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.portfolio {
-  margin: 15px;
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.header {
-  color: Coral;
-  font-size: xx-large;
-  font-weight: bold;
-  padding: 10px;
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(56, 189, 248, 0.14), transparent),
+    linear-gradient(rgba(31, 43, 69, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 43, 69, 0.35) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
 }
 
-.main {
-  color: cornflowerblue;
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero .title {
+  margin: 8px 0 0;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.hero .hook {
+  margin: 20px 0 0;
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.cta {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-raised);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-primary {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #04121f;
+}
+
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #04121f; }
+
+/* ---------- Sections ---------- */
+
+section { padding: 64px 0; }
+
+section h2 { margin: 0 0 28px; }
+
+.section-label {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#about p {
+  max-width: 720px;
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- Experience cards ---------- */
+
+.cards {
   display: grid;
-  gap: 10px;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-.footer {
-  color: cornflowerblue;
-  font-size: xx-small;
-  font-weight: lighter;
-  padding: 10px;
+.card {
+  padding: 24px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card h3 { margin: 0; font-size: 1.05rem; }
+
+.card-meta {
+  margin: 4px 0 12px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card ul { margin: 0; padding-left: 18px; color: var(--text-muted); font-size: 0.95rem; }
+
+.card li { margin-bottom: 6px; }
+
+/* ---------- Book ---------- */
+
+.book-card {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 28px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.book-cover {
+  width: 200px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.book-body h3 { margin: 0 0 10px; font-size: 1.3rem; }
+
+.book-body p { margin: 0 0 20px; color: var(--text-muted); }
+
+/* ---------- Skills ---------- */
+
+.chip-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.chip-group h3 {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.chips {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 5px 14px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.certs {
+  margin: 28px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-links a { color: var(--text); text-decoration: none; }
+
+.footer-links a:hover { color: var(--accent); }
+
+.site-footer p { margin: 0; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .hero { padding: 64px 0 48px; }
+  section { padding: 48px 0; }
+  .cards, .chip-groups { grid-template-columns: 1fr; }
+  .book-card { flex-direction: column; }
+  .book-cover { width: 160px; }
 }
