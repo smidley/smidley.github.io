@@ -1,12 +1,15 @@
 :root {
-  --bg: #0b1120;
-  --bg-raised: #111a2e;
-  --border: #1f2b45;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #38bdf8;
-  --accent-strong: #0ea5e9;
-  --radius: 12px;
+  --bg: #ffffff;
+  --bg-soft: #f8fafc;
+  --bg-raised: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --accent: #0284c7;
+  --accent-strong: #0369a1;
+  --accent-tint: #e0f2fe;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --radius: 16px;
   --max: 960px;
 }
 
@@ -30,18 +33,17 @@ body {
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: 96px 0 72px;
+  padding: 104px 0 80px;
   border-bottom: 1px solid var(--border);
   background:
-    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(56, 189, 248, 0.14), transparent),
-    linear-gradient(rgba(31, 43, 69, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 43, 69, 0.35) 1px, transparent 1px);
-  background-size: auto, 44px 44px, 44px 44px;
+    radial-gradient(ellipse 80% 70% at 70% -20%, rgba(56, 189, 248, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 10% 0%, rgba(14, 165, 233, 0.07), transparent 70%),
+    var(--bg-soft);
 }
 
 .eyebrow {
-  margin: 0 0 8px;
-  color: var(--accent);
+  margin: 0 0 12px;
+  color: var(--accent-strong);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -50,27 +52,28 @@ body {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .hero .title {
-  margin: 8px 0 0;
+  margin: 12px 0 0;
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .hero .hook {
   margin: 20px 0 0;
   max-width: 640px;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
 }
 
 .cta {
-  margin-top: 32px;
+  margin-top: 36px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -78,37 +81,50 @@ body {
 
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--bg-raised);
+  background: var(--bg);
   color: var(--text);
   font-weight: 600;
   text-decoration: none;
-  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+}
 
 .btn-primary {
-  background: var(--accent-strong);
-  border-color: var(--accent-strong);
-  color: #04121f;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
-.btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #04121f; }
+.btn-primary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #ffffff;
+}
 
 /* ---------- Sections ---------- */
 
-section { padding: 64px 0; }
+section { padding: 72px 0; }
 
 section h2 { margin: 0 0 28px; }
 
 .section-label {
-  color: var(--accent);
-  font-size: 0.9rem;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  color: var(--accent-strong);
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -128,10 +144,11 @@ section h2 { margin: 0 0 28px; }
 }
 
 .card {
-  padding: 24px;
+  padding: 28px;
   background: var(--bg-raised);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .card h3 { margin: 0; font-size: 1.05rem; }
@@ -149,26 +166,29 @@ section h2 { margin: 0 0 28px; }
 
 .card a { color: var(--accent); text-decoration: none; }
 
-.card a:hover { text-decoration: underline; }
+.card a:hover { color: var(--accent-strong); text-decoration: underline; }
 
 /* ---------- Book ---------- */
+
+#book { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
 .book-card {
   display: flex;
   gap: 32px;
   align-items: flex-start;
-  padding: 28px;
+  padding: 32px;
   background: var(--bg-raised);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .book-cover {
   width: 200px;
   height: auto;
   flex-shrink: 0;
-  border-radius: 6px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
 }
 
 .book-body h3 { margin: 0 0 10px; font-size: 1.3rem; }
@@ -203,7 +223,7 @@ section h2 { margin: 0 0 28px; }
 
 .chip {
   padding: 5px 14px;
-  background: var(--bg-raised);
+  background: var(--bg-soft);
   border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.85rem;
@@ -221,6 +241,7 @@ section h2 { margin: 0 0 28px; }
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 40px 0;
+  background: var(--bg-soft);
   color: var(--text-muted);
   font-size: 0.9rem;
 }
@@ -236,7 +257,7 @@ section h2 { margin: 0 0 28px; }
 
 .footer-links a { color: var(--text); text-decoration: none; }
 
-.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover { color: var(--accent-strong); }
 
 .site-footer p { margin: 0; }
 
