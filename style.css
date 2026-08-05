@@ -147,6 +147,10 @@ section h2 { margin: 0 0 28px; }
 
 .card li { margin-bottom: 6px; }
 
+.card a { color: var(--accent); text-decoration: none; }
+
+.card a:hover { text-decoration: underline; }
+
 /* ---------- Book ---------- */
 
 .book-card {
